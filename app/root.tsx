@@ -1,5 +1,4 @@
 import {
-  Links,
   Meta,
   Outlet,
   Scripts,
@@ -7,6 +6,8 @@ import {
 } from "react-router";
 import "./app.css";
 import { Header } from "./header";
+import { Box } from "@mui/material";
+import type { Route } from "./+types/root";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -14,6 +15,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Meta />
       </head>
       <body>
         {children}
@@ -24,11 +26,20 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "Blockchain" },
+    { name: "description", content: "Exemplo de implementação de blockchain" },
+  ];
+}
+
 export default function App() {
   return (
     <>
       <Header />
-      <Outlet />
+      <Box sx={{ margin: '20px' }}>
+        <Outlet />
+      </Box>
     </>
   );
 }

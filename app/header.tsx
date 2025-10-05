@@ -3,10 +3,10 @@ import { Link } from "react-router";
 
 export function Header() {
   return (
-    <Box>
+    <Box sx={{ margin: '10px' }}>
       <Link to='/'>Hash</Link>
-      <Link to='/block'>Block</Link>
-      <Link to='/blockchain'>Blockchain</Link>
+      <Link style={{ marginLeft: '20px' }} to='/block'>Block</Link>
+      <Link style={{ marginLeft: '20px' }} to='/blockchain'>Blockchain</Link>
     </Box>
   )
 }
