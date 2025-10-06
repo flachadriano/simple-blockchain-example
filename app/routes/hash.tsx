@@ -1,17 +1,16 @@
 import { Box, TextareaAutosize, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import sha256 from 'crypto-js/sha256';
+import SHA256 from "crypto-js/sha256";
 
 export default function HashPage() {
-  const [data, setData] = useState('');
+  const [data, setData] = useState('Type any text');
   const [hash, setHash] = useState('');
 
-  useEffect(() => setHash(sha256(data).toString()), [data]);
+  useEffect(() => setHash(SHA256(data).toString()), [data]);
 
   return (
-    <>
-      <h1>Hash SHA256</h1>
-      <hr style={{ marginBottom: '20px' }} />
+    <Box>
+      <Typography variant="h3">Hash SHA256</Typography>
       <Box sx={{ color: '#000', backgroundColor: '#ddd', padding: '20px' }}>
         <Box sx={{ display: 'flex' }}>
           <Typography sx={{ minWidth: '100px' }}>Data</Typography>
@@ -22,6 +21,6 @@ export default function HashPage() {
           <Typography sx={{ backgroundColor: '#fff', padding: '3px', flex: '1' }}>{ hash }</Typography>
         </Box>
       </Box>
-    </>
+    </Box>
   )
 }
